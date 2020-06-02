@@ -1,38 +1,41 @@
-# store
+# e-commerce escalable y totalmente para Dockerizar
+Integrantes del proyecto
+* Dayan Fernando Fernandez Pacho 
+* Fernando Tibaduiza Gutierrez
+* Carlos Eduardo Jaramillo Franco
 
-This application was generated using JHipster 6.9.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.9.0](https://www.jhipster.tech/documentation-archive/v6.9.0).
+Esta aplicación se generó utilizando JHipster 6.9.0, puede encontrar documentación y ayuda en  [https://www.jhipster.tech/documentation-archive/v6.9.0](https://www.jhipster.tech/documentation-archive/v6.9.0).
 
-## Development
+## Desarrollo
 
-Before you can build this project, you must install and configure the following dependencies on your machine:
+Antes de poder construir este proyecto, debe instalar y configurar las siguientes dependencias en su máquina::
 
-1. [Node.js][]: We use Node to run a development web server and build the project.
-   Depending on your system, you can install Node either from source or as a pre-packaged bundle.
+1. [Node.js][]:Usamos Node para ejecutar un servidor web de desarrollo y construir el proyecto.
+    Dependiendo de su sistema, puede instalar Node desde la fuente o como un paquete preempaquetado.
 
-After installing Node, you should be able to run the following command to install development tools.
-You will only need to run this command when dependencies change in [package.json](package.json).
+Después de instalar Node, debería poder ejecutar el siguiente comando para instalar herramientas de desarrollo.
+Solo necesitará ejecutar este comando cuando las dependencias cambien en [package.json](package.json).
 
     npm install
 
-We use npm scripts and [Webpack][] as our build system.
+Utilizamos scripts npm y [Webpack][] como nuestro sistema de compilación
 
-Run the following commands in two separate terminals to create a blissful development experience where your browser
-auto-refreshes when files change on your hard drive.
+Ejecute los siguientes comandos en dos terminales separadas para crear una experiencia de desarrollo maravillosa donde su navegador
+se actualiza automáticamente cuando los archivos cambian en su disco duro.
 
     ./gradlew -x webpack
     npm start
 
-Npm is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
-specifying a newer version in [package.json](package.json). You can also run `npm update` and `npm install` to manage dependencies.
-Add the `help` flag on any command to see how you can use it. For example, `npm help update`.
+Npm también se usa para administrar las dependencias CSS y JavaScript que se usan en esta aplicación. Puede actualizar las dependencias especificando una versión más nueva en [package.json](package.json). También puedes correr `npm update` y `npm install` para gestionar dependencias.
+Añada el `help` marca en cualquier comando para ver cómo puedes usarlo. Por ejemplo, `npm help update`.
 
-The `npm run` command will list all of the scripts available to run for this project.
+El `npm run` El comando enumerará todos los scripts disponibles para ejecutar para este proyecto.
 
-### PWA Support
+### Soporte PWA
 
-JHipster ships with PWA (Progressive Web App) support, and it's turned off by default. One of the main components of a PWA is a service worker.
+JHipster viene con soporte PWA (Progressive Web App), y está desactivado por defecto. Uno de los componentes principales de una PWA es un trabajador de servicio.
 
-The service worker initialization code is commented out by default. To enable it, uncomment the following code in `src/main/webapp/index.html`:
+El código de inicialización del trabajador de servicio está comentado de manera predeterminada. Para habilitarlo, descomente el siguiente código en`src/main/webapp/index.html`:
 
 ```html
 <script>
@@ -44,146 +47,52 @@ The service worker initialization code is commented out by default. To enable it
 </script>
 ```
 
-Note: [Workbox](https://developers.google.com/web/tools/workbox/) powers JHipster's service worker. It dynamically generates the `service-worker.js` file.
+### Administrar dependencias
 
-### Managing dependencies
-
-For example, to add [Leaflet][] library as a runtime dependency of your application, you would run following command:
+Por ejemplo, para agregar [Leaflet][] biblioteca como una dependencia de tiempo de ejecución de su aplicación, ejecutaría el siguiente comando:
 
     npm install --save --save-exact leaflet
 
-To benefit from TypeScript type definitions from [DefinitelyTyped][] repository in development, you would run following command:
+Para beneficiarse de las definiciones de tipo de TypeScript de [DefinitelyTyped][] repositorio en desarrollo, ejecutarías el siguiente comando:
 
     npm install --save-dev --save-exact @types/leaflet
 
-Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows about them:
-Edit [src/main/webapp/app/vendor.ts](src/main/webapp/app/vendor.ts) file:
-
-```
-import 'leaflet/dist/leaflet.js';
-```
-
-Edit [src/main/webapp/content/scss/vendor.scss](src/main/webapp/content/scss/vendor.scss) file:
-
-```
-@import '~leaflet/dist/leaflet.css';
-```
-
-Note: There are still a few other things remaining to do for Leaflet that we won't detail here.
-
-For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
 
 ### Using Angular CLI
 
-You can also use [Angular CLI][] to generate some custom client code.
+También puedes usar [Angular CLI][] para generar un código de cliente personalizado.
 
-For example, the following command:
+Por ejemplo, el siguiente comando:
 
     ng generate component my-component
 
-will generate few files:
+generará pocos archivos:
 
     create src/main/webapp/app/my-component/my-component.component.html
     create src/main/webapp/app/my-component/my-component.component.ts
     update src/main/webapp/app/app.module.ts
 
-## Building for production
 
-### Packaging as jar
+## Uso de Docker para primera entrega
 
-To build the final jar and optimize the store application for production, run:
+Usar Docker para mejorar la experiencia de desarrollo del JHipster. Hay varias configuraciones de docker-compose disponibles en el proyecto [src/main/docker](src/main/docker) esta carpeta tiene los punto a punto de Docker construidos para nuestro ambiente
 
-    ./gradlew -Pprod clean bootJar
-
-This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
-To ensure everything worked, run:
-
-    java -jar build/libs/*.jar
-
-Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
-
-Refer to [Using JHipster in production][] for more details.
-
-### Packaging as war
-
-To package your application as a war in order to deploy it to an application server, run:
-
-    ./gradlew -Pprod -Pwar clean bootWar
-
-## Testing
-
-To launch your application's tests, run:
-
-    ./gradlew test integrationTest jacocoTestReport
-
-### Client tests
-
-Unit tests are run by [Jest][] and written with [Jasmine][]. They're located in [src/test/javascript/](src/test/javascript/) and can be run with:
-
-    npm test
-
-For more information, refer to the [Running tests page][].
-
-### Code quality
-
-Sonar is used to analyse code quality. You can start a local Sonar server (accessible on http://localhost:9001) with:
-
-```
-docker-compose -f src/main/docker/sonar.yml up -d
-```
-
-You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) or by using the gradle plugin.
-
-Then, run a Sonar analysis:
-
-```
-./gradlew -Pprod clean check jacocoTestReport sonarqube
-```
-
-For more information, refer to the [Code quality page][].
-
-## Using Docker to simplify development (optional)
-
-You can use Docker to improve your JHipster development experience. A number of docker-compose configuration are available in the [src/main/docker](src/main/docker) folder to launch required third party services.
-
-For example, to start a mysql database in a docker container, run:
+Por ejemplo, para iniciar una base de datos mysql en un contenedor docker, ejecutamos:
 
     docker-compose -f src/main/docker/mysql.yml up -d
 
-To stop it and remove the container, run:
+Para detenerlo y eliminar el contenedor, ejecutamos:
 
     docker-compose -f src/main/docker/mysql.yml down
 
-You can also fully dockerize your application and all the services that it depends on.
-To achieve this, first build a docker image of your app by running:
+También dockerizamos completamente nuestra aplicación y todos los servicios de los que depende.
+Para lograr esto, primero creamos una imagen acoplable de la aplicación ejecutando:
 
     ./gradlew bootJar -Pprod jibDockerBuild
 
-Then run:
+Entonces ejecutamos 
 
     docker-compose -f src/main/docker/app.yml up -d
 
-For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
 
-## Continuous Integration (optional)
 
-To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
-
-[jhipster homepage and latest documentation]: https://www.jhipster.tech
-[jhipster 6.9.0 archive]: https://www.jhipster.tech/documentation-archive/v6.9.0
-[using jhipster in development]: https://www.jhipster.tech/documentation-archive/v6.9.0/development/
-[using docker and docker-compose]: https://www.jhipster.tech/documentation-archive/v6.9.0/docker-compose
-[using jhipster in production]: https://www.jhipster.tech/documentation-archive/v6.9.0/production/
-[running tests page]: https://www.jhipster.tech/documentation-archive/v6.9.0/running-tests/
-[code quality page]: https://www.jhipster.tech/documentation-archive/v6.9.0/code-quality/
-[setting up continuous integration]: https://www.jhipster.tech/documentation-archive/v6.9.0/setting-up-ci/
-[node.js]: https://nodejs.org/
-[yarn]: https://yarnpkg.org/
-[webpack]: https://webpack.github.io/
-[angular cli]: https://cli.angular.io/
-[browsersync]: https://www.browsersync.io/
-[jest]: https://facebook.github.io/jest/
-[jasmine]: https://jasmine.github.io/2.0/introduction.html
-[protractor]: https://angular.github.io/protractor/
-[leaflet]: https://leafletjs.com/
-[definitelytyped]: https://definitelytyped.org/
