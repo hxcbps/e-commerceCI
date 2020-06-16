@@ -93,6 +93,31 @@ Para lograr esto, primero creamos una imagen acoplable de la aplicación ejecuta
 Entonces ejecutamos 
 
     docker-compose -f src/main/docker/app.yml up -d
+	
+## Uso de Jhipster para la segunda entrega
+
+JHipster nos ofrece un conjunto de herramientas para desarrollar y diseñar los elementos correspondientes al frontend y también al backend de un proyecto de desarrollo. Por ejemplo, el framework Spring Boot es la base más adecuada para obtener un robusto stack de Java del lado del servidor que nos permita conectarnos a varias bases de datos, motores de virtualización y herramientas de seguimiento. Para conectarse al frontend, utiliza una interfaz REST. A continuación, puedes encontrar algunas de las opciones disponibles del lado del servidor en JHipster:
+
+Para poder acceder a estas multivariadas herramientas, debemosacceder al cmd con beneficios de administrador, posteriomente nos dirigimos a la carpeta raiz de nuestro proyecto y desde alli ya escribiendo Jhipster ya podremos acceder a los items de configuracion los cuales queramos adicionar a nuestro e-commerce
+
+-Bases de datos: MariaDB, PostgreSQL, Oracle, MySQL, MongoDB
+-Virtualización: Docker, Kubernetes, AWS
+-Entornos de ejecución de pruebas: Karma, Cucumber
+-Indexación: ElasticSearch
+-Cachés: Ehcache, Infinispan
+-Sistemas de monitorización: Prometheus
+
+Adjuntamos el enlace de una guia practica para conocer la creacion de un proyecto de desarrollo con estas caracteristicas
+
+https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/jhipster/
+
+
+
+
+
+
+	
+
 
 
 
