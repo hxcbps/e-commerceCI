@@ -112,12 +112,31 @@ Adjuntamos el enlace de una guia practica para conocer la creacion de un proyect
 https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/jhipster/
 
 
+## Uso de Jenkins para la segunda entrega
+Jenkins basicamente es un servidor de integración continua de código abierto, Jenkins funciona a base de tareas donde se pueden administrar lo que se hará en un build, como programar cada cuanto tiempo revise nuestro repositorio de versionamiento o que haga un despliegue a otro servidor, entre otras cosas.
+Otras alternativas usualmente usadas son: Travis CI, Codeship, CircleCI, etc.
+Para usar Jenkins necesitas, java8, 256mb de ram, y 1gb de espacio de disco duro.
 
+1. Descargarlo desde su sitio web oficial: https://jenkins.io/
+2. Una vez descargado procedemos a descomprimirlo y ejecutar el sistema de instalación.
+3. Una vez instalado lo abrimos:
+- - Jenkins por defecto corre en el puerto 8080, para acceder a el solo debemos escribir la direccion en el navegador: `http://localhost:8080/`
+- - Podremos ver la pagina de login, donde introduciremos nuestros datos o crearemos un usuario.
 
-
-
-	
-
-
+## Configurar Jenkins
+1. Primero agregaremos las credenciales a Jenkins, esta nos servita para dar permisos a configuraciones posteriores. Ingresamos los datos que se nos piden y damos clic en OK.
+2. Luego descargaremos los Plugins necesarios para que se comunique con GitHub. En el panel de control damos click en:
+- -  Manage Jenkins -> Maneje Plugins.
+3. Seleccionamos y descargamos los Plugins, en la pestaña Available encontramos los que están disponibles para la descarga. Seleccionamos cualquier opción para comenzar la descarga e instalación.
+4. Crear una nueva tarea para construir la solución,
+- - En el panel principal de Jenkins seleccionamos la opción New Item.
+5. Escribimos el nombre de la tarea y seleccionamos de la opción Crear un proyecto de estilo libre. Y damos clic en OK.
+6. Configurar la nueva tarea para que se comunique con GitHub.
+- - Colocamos una descripción a la tarea y seleccionamos la opción de GitHub Project en donde colocaremos la URL del repositorio creado en GitHub.
+7. Configuramos el origen del código fuente con los datos con la URL del repositorio de GitHub y la credencial que ya habíamos creado.
+8. Seleccionamos las opciones disparadores de ejecución, marcamos la opción ejecutar periódicamente, en donde agregaremos los parámetros para indicar cada cuanto tiempo revise si existe un cambio y en un lapso de cuantas horas.
+9. Seleccionamos guardar y esperamos que se construya la primera solución.
+10. En el panel principal se muestran las tareas que hemos agregado y el estado en el que se encuentra.
+11. Damos clic en Construir ahora para que se compile y genere el ejecutable de nuestra aplicación.
 
 
