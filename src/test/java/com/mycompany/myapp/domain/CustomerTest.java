@@ -18,5 +18,6 @@ public class CustomerTest {
         assertThat(customer1).isNotEqualTo(customer2);
         customer1.setId(null);
         assertThat(customer1).isNotEqualTo(customer2);
+
     }
 }

@@ -8,6 +8,7 @@ public class ProductTest {
 
     @Test
     public void equalsVerifier() throws Exception {
+
         TestUtil.equalsVerifier(Product.class);
         Product product1 = new Product();
         product1.setId(1L);
