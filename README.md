@@ -140,3 +140,29 @@ Para usar Jenkins necesitas, java8, 256mb de ram, y 1gb de espacio de disco duro
 11. Damos clic en Construir ahora para que se compile y genere el ejecutable de nuestra aplicación.
 
 
+## Documentacion Travis
+
+Travis-CI es un sistema de Integración Continua, gratuita para proyectos Open Source y de pago para proyectos privados. Se integra sin problemas con GitHub y automáticamente ejecuta el pipeline definido en cada push o pull requests. Testea y buildea aplicaciones escritas en Ruby, Node, Objective-C, Go, Java, C# y F#, entre otras (que corran en Linux).
+
+Posee su propia “Deploy engine” la cual permite a los desarrolladores testear por completo sus aplicaciones para luego realizar exitosamente el deploy sin sorpresas. Travis-CI tiene un proveedor para Azure Web Apps, que permiten combinar GitHub y Travis-CI con Azure para realizar los deploys automáticos.
+
+Si bien es similar a Jenkins, tiene sus diferencias. No utiliza tareas programadas, no tiene costos de mantenimiento (esta hosteado como servicio),el setup es “simple”, entre otras.
+
+##Repositorio
+
+Lo primero que necesitas es tener to código en un repositorio. Si tu proyecto es open source, puedes usar Github y dejarlo libre sin costo, y eso te permite usar la versión Open de Travis, para repositorios públicos.
+
+##Conectar Travis CI a tu repositorio
+
+Una vez tengas tu repo creado, dirígete a Travis-CI e inicia sesión con tu cuenta de Github, esto permite a Travis ver tu lista de repos. Busca el que quieres configurar y activalo con el switch a verde y despues clicka en settings.
+
+En las settings te recomiendo que actives las opciones Build pushed branches y Build pushed pull requests para que Travis se ejecute en las PR que generes o te envíe y tambien cuando éstas sean aceptadas y mergeadas a master.
+
+##Fichero de configuración
+
+Aquí es donde entra la magia. Con un simple fichero que llamaremos .travis.yml y alojaremos en la raiz de nuestro proyecto, vamos a decirle a Travis lo que vamos a hacer.
+
+Ahora ya sabes como configurar Travis en tu proyecto para tener CI/CD (Integración y Despliegue contínuos) de manera que los tests se ejecuten cuando se abra una pull request, y una vez la aceptemos y Travis de el OK, poderla mergear en master y desplegar los cambios en producción o el entorno que elijas.
+
+
+
